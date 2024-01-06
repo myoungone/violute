@@ -88,7 +88,7 @@ def main(argv):
         model = model.load_from_checkpoint(run)
 
     # device
-    if FLAGS.gpu >= 0:
+    if FLAGS.gpu >= 0 and torch.cuda.is_available():
         device = torch.device("cuda:%d" % FLAGS.gpu)
         model = model.to(device)
     else:
