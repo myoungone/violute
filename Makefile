@@ -1,8 +1,17 @@
 
+install:
+	pip install --upgrade pip &&\
+		pip install -r requirements.txt
+
 get_data:
 	mkdir -p data/sources
-	cd data/sources && wget --load-cookies cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1dLADkjp-5Va0OsKfe5EZkZtMdW3gRUTw' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1dLADkjp-5Va0OsKfe5EZkZtMdW3gRUTw" -O training_data.tar.gz && tar -xzf training_data.tar.gz && rm -f cookies.txt && rm -f training_data.tar.gz
-	mkdir -p samples
+	cd data/sources && wget --load-cookies cookies.txt \
+	   "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate \
+	   'https://docs.google.com/uc?export=download&id=1dLADkjp-5Va0OsKfe5EZkZtMdW3gRUTw' \
+	   -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1dLADkjp-5Va0OsKfe5EZkZtMdW3gRUTw" -O training_data.tar.gz &&\
+	   tar -xzf training_data.tar.gz &&\
+	   rm -f cookies.txt &&\
+	   rm -f training_data.tar.gz
 
 preprocess:
 	python scripts/preprocess.py --input_path=./data/sources --output_path=./data/preprocessed
