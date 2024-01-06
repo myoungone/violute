@@ -86,7 +86,7 @@ def fft_convolve(signal, kernel):
 def get_ckpts(folder, name=None):
     ckpts = map(str, Path(folder).rglob("*.ckpt"))
     if name:
-        ckpts = filter(lambda e: mode in os.path.basename(str(e)), ckpts)
+        ckpts = filter(lambda e: name in os.path.basename(str(e)), ckpts)
     ckpts = sorted(ckpts, key=os.path.getmtime)
     return ckpts
 
@@ -94,7 +94,8 @@ def get_ckpts(folder, name=None):
 def get_versions(folder):
     ckpts = map(str, Path(folder).rglob("version_*"))
     ckpts = filter(lambda x: os.path.isdir(x), ckpts)
-    return sorted(Path(dirpath).iterdir(), key=os.path.getmtime)
+    # return sorted(Path(dirpath).iterdir(), key=os.path.getmtime)
+    return sorted(Path(folder).iterdir(), key=os.path.getmtime)
 
 
 def search_for_config(folder):

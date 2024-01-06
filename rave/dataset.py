@@ -172,7 +172,7 @@ def get_training_channels(db_path, target_channels):
         if target_channels > dataset_channels:
             raise RuntimeError(
                 "[Error] Requested number of channels is %s, but dataset has %s channels"
-            ) % (FLAGS.channels, dataset_channels)
+            ) % (target_channels, dataset_channels)
     n_channels = target_channels or dataset_channels
     if n_channels is None:
         print("[Warning] channels not found in dataset, taking 1 by default")
