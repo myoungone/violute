@@ -11,10 +11,7 @@ from torch.utils.data import DataLoader
 
 try:
     import rave
-except:
-    import os
-    import sys
-
+except ModuleNotFoundError:
     sys.path.append(os.path.abspath("."))
     import rave
 
