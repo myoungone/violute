@@ -89,7 +89,10 @@ def main(argv):
 
     # device
     if FLAGS.gpu >= 0 and torch.cuda.is_available():
-        device = torch.device("cuda:%d" % FLAGS.gpu)
+        # device = torch.device("cuda:%d" % FLAGS.gpu)
+        device = torch.device("cuda")
+        print("cuda:%d" % FLAGS.gpu)
+        print(device)
         model = model.to(device)
     else:
         device = torch.device("cpu")
