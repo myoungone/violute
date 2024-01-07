@@ -1,4 +1,10 @@
 
+build_docker:
+	docker build -f ./Dockerfile --rm -t violute .
+
+run_docker:
+	docker run -it --ipc=host violute
+
 install:
 	pip install --upgrade pip &&\
 		pip install -r requirements.txt
@@ -17,7 +23,9 @@ preprocess:
 	python scripts/preprocess.py --input_path=./data/sources --output_path=./data/preprocessed
 
 train:
-	# python scripts/train.py --name=violute --db_path=./data/preprocessed --max_steps=300000 --save_every=10000 --channels=1 --gpu=1
+	python scripts/train.py --name=violute --db_path=./data/preprocessed --max_steps=300000 --save_every=10000 --channels=1 --gpu=1
+
+train_test:
 	python scripts/train.py --name=violute --db_path=./data/preprocessed --max_steps=31 --save_every=10 --val_every=15 --channels=1 --gpu=1
 
 generate:
