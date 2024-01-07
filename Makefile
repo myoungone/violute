@@ -24,10 +24,8 @@ get_model:
 	cd models/violute && wget --load-cookies cookies.txt \
 	   "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate \
 	   'https://docs.google.com/uc?export=download&id=1-upj6o01NtagaoGftReKB2IXH7OrNQTP' \
-	   -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1-upj6o01NtagaoGftReKB2IXH7OrNQTP" -O training_data.tar.gz &&\
-	   tar -xzf training_data.tar.gz &&\
-	   rm -f cookies.txt &&\
-	   rm -f training_data.tar.gz
+	   -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1-upj6o01NtagaoGftReKB2IXH7OrNQTP" best_model.cpkt -O &&\
+	   rm -f cookies.txt
 
 
 preprocess:
