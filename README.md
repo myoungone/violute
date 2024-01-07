@@ -65,3 +65,12 @@
 
 학습 진행 상황은 runs/violute_e18d54798e 아래에 기록되고, 학습에서 얻어진 모델은 models/violute/best_model.ckpt 에 저장됩니다.
 
+## Note
+
+모듈, 전처리 및 학습 코드는 https://github.com/acids-ircam/RAVE 의 코드를 가져와 활용하였습니다.
+
+음색을 섞는 부분은 scripts/generate.py (line 111 ~ 135) 에 구현하였습니다.
+
+생성한 음원을 평가하는 부분은 scripts/evaluate.py 에 구현하였습니다.
+
+샘플 파일에 대한 인퍼런스 결과 파일은 https://github.com/myoungone/violute/blob/main/generations/violute/output_v5_f5.wav 입니다.
