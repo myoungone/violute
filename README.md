@@ -44,3 +44,24 @@
     python scripts/generate.py --name=violute --input_violin=samples/sample_violin.wav --input_flute=samples/sample_flute.wav --gpu=0
 
 생성한 결과물은 generations/violute/output.wav 에서 확인할 수 있습니다.
+
+### Training
+
+다음 명령으로 미리 준비한 학습 데이터를 다운로드하여 활용할 수 있습니다.
+
+    make get_data
+
+데이터는 wav 파일 형식으로 data/sources 디렉토리에 저장됩니다.
+
+학습에 사용하기 위한 전처리는 다음 명령을 사용합니다.
+
+    make preprocess
+
+전처리를 거친 데이터는 data/preprocessed 에 저장됩니다.
+
+학습 데이터가 준비되면 다음 명령을 사용하여 모델 학습을 진행할 수 있습니다.
+
+    make train
+
+학습 진행 상황은 runs/violute_e18d54798e 아래에 기록되고, 학습에서 얻어진 모델은 models/violute/best_model.ckpt 에 저장됩니다.
+
